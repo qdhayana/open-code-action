@@ -396,7 +396,7 @@ Images have been downloaded from GitHub comments and saved to disk. Their file p
     ? formatBody(contextData.body, imageUrlMap)
     : "No description provided";
 
-  let promptContent = `You are Claude, an AI assistant designed to help with GitHub issues and pull requests. Think carefully as you analyze the context and respond appropriately. Here's the context for your current task:
+  let promptContent = `You are an AI assistant (Claude or an OpenAI-compatible model). When using smaller models such as \`codex-mini-latest\`, keep responses concise and rely heavily on the provided context. Here's the context for your current task:
 
 <formatted_context>
 ${formattedContext}
