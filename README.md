@@ -268,11 +268,12 @@ Use a specific Claude model:
 
 ## Cloud Providers
 
-You can authenticate with Claude using any of these three methods:
+You can authenticate with Claude using any of these methods:
 
 1. Direct Anthropic API (default)
 2. Amazon Bedrock with OIDC authentication
 3. Google Vertex AI with OIDC authentication
+4. OpenAI-compatible providers (OpenAI, OpenRouter)
 
 For detailed setup instructions for AWS Bedrock and Google Vertex AI, see the [official documentation](https://docs.anthropic.com/en/docs/claude-code/github-actions#using-with-aws-bedrock-%26-google-vertex-ai).
 
@@ -305,6 +306,14 @@ Use provider-specific model names based on your chosen provider:
   with:
     model: "claude-3-7-sonnet@20250219"
     use_vertex: "true"
+    # ... other inputs
+
+# For OpenAI-compatible providers (OpenAI or OpenRouter)
+- uses: anthropics/claude-code-action@beta
+  with:
+    openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+    # openai_base_url: "https://openrouter.ai/api/v1"   # Optional for OpenRouter
+    model: "codex-mini-latest"
     # ... other inputs
 ```
 

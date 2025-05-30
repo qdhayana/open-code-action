@@ -40,6 +40,13 @@ inputs:
     required: false
     default: ""
 
+  openai_api_key:
+    description: "API key for OpenAI-compatible providers (OpenAI, OpenRouter, etc.)"
+    required: false
+  openai_base_url:
+    description: "Base URL for OpenAI-compatible API (optional)"
+    required: false
+
   # Auth configuration
   anthropic_api_key:
     description: "Anthropic API key (required for direct API, not needed for Bedrock/Vertex)"
@@ -116,6 +123,8 @@ runs:
 
         # Provider configuration
         ANTHROPIC_BASE_URL: ${{ env.ANTHROPIC_BASE_URL }}
+        OPENAI_API_KEY: ${{ inputs.openai_api_key }}
+        OPENAI_BASE_URL: ${{ inputs.openai_base_url }}
 
         # AWS configuration
         AWS_REGION: ${{ env.AWS_REGION }}
